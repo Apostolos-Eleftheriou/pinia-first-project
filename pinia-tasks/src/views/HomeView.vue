@@ -19,20 +19,20 @@
                     <TaskForm />
                 </div>
                 <nav
-                    class="w-auto flex items-center justify-center md:justify-between md:mx-5 gap-5 flex-wrap bg-gray-300 p-3 rounded-lg m-3">
+                    class="w-auto flex items-center justify-center md:justify-between md:mx-5 gap-4 md:gap-9 flex-wrap bg-gray-300 p-3 rounded-lg m-3">
                     <Search @searchText="handleSearchText" />
                     <div class="flex items-center justify-center gap-2">
                         <button @click="filter = 'all'"
                             :class="filter === 'all' ? 'bg-[#ffd859]' : 'bg-white hover:bg-slate-100'"
                             class="rounded-md p-3 flex items-center justify-center">
-                            <span class="hidden md:block">All Tasks</span>
-                            <i class="material-icons md:hidden">dashboard</i>({{ totalCount }})
+                            <span class="hidden lg:block">All Tasks</span>
+                            <i class="material-icons lg:hidden">dashboard</i>({{ totalCount }})
                         </button>
                         <button @click="filter = 'fav'"
                             :class="filter === 'fav' ? 'bg-[#ffd859]' : 'bg-white hover:bg-slate-100'"
                             class="rounded-md p-3 flex items-center justify-center">
-                            <span class="hidden md:block">Favorite Tasks</span>
-                            <i class="material-icons md:hidden">favorite</i>
+                            <span class="hidden lg:block">Favorite Tasks</span>
+                            <i class="material-icons lg:hidden">favorite</i>
                             ({{ favCount }})
                         </button>
                     </div>
@@ -47,7 +47,12 @@
             <div v-for="task in filteredTasks" :key="task.id" v-if="filteredTasks.length">
                 <TaskDetails :task="task" />
             </div>
-            <div v-else>
+            <div v-else-if="tasks.length === 0">
+                <p class="p-4 rounded-lg mx-3 text-center bg-[#ffd859]">
+                    (;-;) Wow, such empty (;-;)
+                </p>
+            </div>
+            <div v-else-if="!filteredTasks.length && tasks.length">
                 <p class="p-4 rounded-lg mx-3 text-center bg-[#ffd859]">
                     (;-;) No match found for ‘{{ searchText }}’
                 </p>
@@ -58,7 +63,12 @@
             <div v-for="task in filteredFavs" :key="task.id" v-if="filteredFavs.length">
                 <TaskDetails :task="task" />
             </div>
-            <div v-else>
+            <div v-else-if="tasks.length === 0 || filteredTasks.length && !filteredFavs.length">
+                <p class="p-4 rounded-lg mx-3 text-center bg-[#ffd859]">
+                    (;-;) Wow, such empty (;-;)
+                </p>
+            </div>
+            <div v-else-if="!filteredFavs.length && tasks.length">
                 <p class="p-4 rounded-lg mx-3 text-center bg-[#ffd859]">
                     (;-;) No match found for ‘{{ searchText }}’
                 </p>
@@ -121,6 +131,7 @@ const handleSearchText = (text) => {
 // i can destructure the pinia stores and getters directly to refs and then use those refs. so instead of taskStore.loading i can just do loading
 const { tasks, loading, favs, totalCount, favCount } = storeToRefs(taskStore)
 const { userData, userLoading } = storeToRefs(userStore)
+
 const filter = ref('all')
 
 </script>
