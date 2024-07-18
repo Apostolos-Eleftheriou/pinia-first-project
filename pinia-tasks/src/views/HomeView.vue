@@ -19,7 +19,7 @@
                     <TaskForm />
                 </div>
                 <nav
-                    class="w-auto flex items-center justify-center md:justify-between md:mx-5 gap-4 md:gap-9 flex-wrap bg-gray-300 p-3 rounded-lg m-3">
+                    class="w-auto flex items-center justify-center md:justify-between md:mx-5 gap-2 md:gap-9 flex-wrap bg-gray-300 p-3 rounded-lg m-3">
                     <Search @searchText="handleSearchText" />
                     <div class="flex items-center justify-center gap-2">
                         <button @click="filter = 'all'"
