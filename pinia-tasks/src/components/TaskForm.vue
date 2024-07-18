@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="handleSubmit" class="gap-4">
+    <form @submit.prevent="handleSubmit" class="gap-4 justify-between flex">
         <input type="text" placeholder="I need to..." v-model="newTask" class="w-full md:w-auto">
         <button @click="handleSubmit">Add</button>
     </form>

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full max-w-[150px] relative">
+    <div class="w-full max-w-[150px] min-w-[120px] relative">
         <input type="text" @input="handleInput" placeholder="Search Tasks..." v-model="inputText" />
         <div class="absolute right-2 top-0 flex place-content-center h-full" @click="removeText" v-if="showX">
             <div class="flex items-center justify-center">

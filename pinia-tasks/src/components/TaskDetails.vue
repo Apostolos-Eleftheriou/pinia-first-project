@@ -1,6 +1,7 @@
 <template>
     <div class="bg-white m-3 p-4 grid grid-cols-3 rounded-lg shadow-md select-none">
-        <h3 :title="task.title" class="col-span-2">{{ task.title }}</h3>
+        <h3 :title="task.title" class="col-span-2 w-full truncate hover:whitespace-normal">{{ task.title }}
+        </h3>
         <div class="icons text-end w-full flex items-center justify-end">
             <i class="material-icons cursor-pointer hover:text-red-800 duration-100"
                 @click="taskStore.removeTask(task.id)">delete</i>
@@ -20,10 +21,10 @@ defineProps(['task'])
 </script>
 
 <style scoped>
-h3 {
+/* h3 {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
+} */
 </style>

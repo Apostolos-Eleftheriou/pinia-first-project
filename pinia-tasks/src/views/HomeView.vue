@@ -1,6 +1,10 @@
 <template>
     <main v-if="!userLoading && isOnline"
         class="w-full max-w-[900px] mx-auto lg:my-4 rounded-lg shadow-lg relative pb-2">
+        <div class="absolute right-2 -bottom-5 text-xs text-gray-400 italic opacity-55">made with ❤️ <a
+                href="https://github.com/Apostolos-Eleftheriou">by
+                Apostolis
+                Eleftheriou</a></div>
         <header class="top-0 sticky rounded-lg flex flex-col shadow-md shadow-gray-300">
             <div class="flex items-center justify-between w-full">
                 <div class="flex items-center justify-center mx-4">
@@ -15,25 +19,27 @@
                 </p>
             </div>
             <div class="w-full flex flex-wrap md:flex-nowrap justify-center items-center mt-3">
-                <div class="bg-gray-300 p-3 rounded-lg m-3 w-auto">
+                <div class="bg-gray-300 p-3 rounded-lg m-3 w-full sm:w-auto">
                     <TaskForm />
                 </div>
                 <nav
-                    class="w-auto flex items-center justify-center md:justify-between md:mx-5 gap-2 md:gap-9 flex-wrap bg-gray-300 p-3 rounded-lg m-3">
+                    class="w-full sm:w-auto flex items-center justify-between md:mx-5 gap-2 md:gap-4 flex-nowrap bg-gray-300 p-3 rounded-lg m-3">
                     <Search @searchText="handleSearchText" />
                     <div class="flex items-center justify-center gap-2">
                         <button @click="filter = 'all'"
                             :class="filter === 'all' ? 'bg-[#ffd859]' : 'bg-white hover:bg-slate-100'"
-                            class="rounded-md p-3 flex items-center justify-center">
+                            class="rounded-md p-3 flex items-center justify-center whitespace-nowrap">
                             <span class="hidden lg:block">All Tasks</span>
-                            <i class="material-icons lg:hidden">dashboard</i>({{ totalCount }})
+                            <i class="material-icons lg:hidden">dashboard</i><span class="text-sm text-gray-500">({{
+                                totalCount
+                            }})</span>
                         </button>
                         <button @click="filter = 'fav'"
                             :class="filter === 'fav' ? 'bg-[#ffd859]' : 'bg-white hover:bg-slate-100'"
-                            class="rounded-md p-3 flex items-center justify-center">
+                            class="rounded-md p-3 flex items-center justify-center whitespace-nowrap">
                             <span class="hidden lg:block">Favorite Tasks</span>
                             <i class="material-icons lg:hidden">favorite</i>
-                            ({{ favCount }})
+                            <span class="text-sm text-gray-500">({{ favCount }})</span>
                         </button>
                     </div>
                 </nav>
