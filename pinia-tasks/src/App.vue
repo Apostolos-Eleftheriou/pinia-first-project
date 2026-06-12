@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { RouterView, useRoute } from 'vue-router'
 const route = useRoute()
 </script>
 
@@ -11,10 +11,4 @@ const route = useRoute()
       </keep-alive>
     </transition>
   </router-view>
-  <!-- <div class="p-8 bg-gray-100 min-h-screen">
-    <div v-if="loading" class="loading-placeholder">
-      Loading...
-    </div>
-    <ChangeLogContainer :items="data.data" v-else/>
-  </div> -->
 </template>

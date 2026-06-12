@@ -76,6 +76,11 @@ export const useTaskStore = defineStore("taskStore", {
                 method: "DELETE"
             }
             )
+        },
+        editTask(id, title) {
+            const task = this.tasks.find((task) => task.id === id);
+            task.title = title;
+            localStorage.setItem("tasks", JSON.stringify(this.tasks));
         }
     }
 })

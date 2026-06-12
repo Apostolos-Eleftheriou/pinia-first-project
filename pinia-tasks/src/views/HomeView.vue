@@ -11,12 +11,13 @@
                     <img src="../assets/Pinialogo.svg" alt="pinia logo">
                     <h1>{{ taskStore.name }}</h1>
                 </div>
-                <p class="flex justify-center items-center py-2 px-4 mx-4 bg-gray-300 rounded-lg">
-                    <span class="hidden md:block">Welcome, {{ userData.name }}</span>
-                    <RouterLink to="/userInfo" class="flex items-center justify-center md:ml-2">
+                <RouterLink to="/userInfo" class="flex items-center justify-center md:ml-2">
+                    <p class="flex justify-center items-center py-2 px-4 mx-4 bg-gray-300 rounded-lg  gap-2">
+                        <span class="hidden md:block">Welcome, {{ userData.name }}</span>
+
                         <i class="material-icons">account_circle</i>
-                    </RouterLink>
-                </p>
+                    </p>
+                </RouterLink>
             </div>
             <div class="w-full flex flex-wrap md:flex-nowrap justify-center items-center mt-3">
                 <div class="bg-gray-300 p-3 rounded-lg m-3 w-full sm:w-auto">
